@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         this.activity = activity;
     }
 
+    @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.task_layout, parent, false);
@@ -40,15 +42,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         ToDoModel item = toDoModelList.get(position);
         holder.task.setText(item.getTask());
         holder.task.setChecked(toBoolean(item.getStatus()));
-        holder.task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    db.updateStatus(item.getId(), 1);
-                }
-                else {
-                    db.updateStatus(item.getId(), 0);
-                }
+        holder.task.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                db.updateStatus(item.getId(), 1);
+            }
+            else {
+                db.updateStatus(item.getId(), 0);
             }
         });
     }
@@ -68,6 +67,14 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     public Context getContext(){
         return activity;
+    }
+
+    public void deleteItem(int position){
+        ToDoModel item = toDoModelList.get(position);
+        db.deleteTask(item.getId());
+        toDoModelList.remove(position);
+        notifyItemRemoved(position);
+
     }
 
     public void editItem(int position){
