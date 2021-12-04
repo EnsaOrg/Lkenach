@@ -22,6 +22,7 @@ import ma.ensa.lkenach.utils.DatabaseHandler;
 
 public class AddNewTask extends BottomSheetDialogFragment {
 
+    public static final String TAG = "ActionBottomDialog";
     private EditText newTaskText;
     private Button newTaskSaveButton;
     private DatabaseHandler db;
@@ -77,7 +78,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 }
                 else{
                     newTaskSaveButton.setEnabled(true);
-                    newTaskSaveButton.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimaryDark);
+                    newTaskSaveButton.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimaryDark));
                 }
 
             }
@@ -88,12 +89,13 @@ public class AddNewTask extends BottomSheetDialogFragment {
             }
         });
 
-         newTaskSaveButton.setOnClickListener(new View.OnClickListener() {
+        boolean finalIsUpdate = isUpdate;
+        newTaskSaveButton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  String text = newTaskText.getText().toString();
-                 if (isUpdate){
-                     db.updateTask(bundle.getInt( key:"id"), text);
+                 if (finalIsUpdate){
+                     db.updateTask(bundle.getInt("id"), text);
                  }
                  else{
                      ToDoModel task = new ToDoModel();
@@ -109,7 +111,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onDismiss(DialogInterface dialog){
         Activity activity= getActivity();
         if (activity instanceof DialogCloseListener){
-            ((DialogCloseListener)activity).handleDialogClose(dialog);
+            ((DialogCloseListener)activity).hundleDialogClose(dialog);
         }
     }
 }
