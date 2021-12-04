@@ -25,7 +25,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + TASK + "TEXT, " + STATUS + "INTEGER)";
     private SQLiteDatabase db;
 
-    public DatabaseHandler(Context context){
+    private DatabaseHandler(Context context){
         super(context, NAME, null, VERSION);
     }
 
@@ -81,7 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return taskList;
     }
 
-    public void updateTask(int id, String status){
+    public void updateTask(int id, int status){
         ContentValues cv = new ContentValues();
         cv.put(STATUS, status);
         db.update(TODO_TABLE, cv, ID + "=?", new String[] {STATUS.valueOf(id)});
