@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText task;
@@ -40,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v){
         intent = new Intent(MainActivity.this,SearchTask.class);
         intent.putExtra("searchTask", task.getText().toString());
-        startActivity(intent);
+        if(task.getText().toString().isEmpty()){
+            Toast.makeText(this,"Veuillez saisir quelque chose",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            startActivity(intent);
+        }
+
     }
 }
