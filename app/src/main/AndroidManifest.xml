@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lkenach">
         <activity
+            android:name=".SearchTask"
+            android:exported="true" />
+        <activity
             android:name=".NotDoneTask"
             android:exported="true" />
         <activity

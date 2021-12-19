@@ -5,13 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    EditText task;
+    Button send;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //cas du bouton
+        send = findViewById(R.id.button);
+        send.setOnClickListener(this::onClick);
+
+        //cas des editText
+        task = findViewById(R.id.editTextText);
     }
 
     public void showAllTasks(View view){
@@ -24,5 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showNotDoneTasks(View view){
         startActivity(new Intent(this, NotDoneTask.class));
+    }
+
+    public void onClick(View v){
+        intent = new Intent(MainActivity.this,SearchTask.class);
+        intent.putExtra("searchTask", task.getText().toString());
+        startActivity(intent);
     }
 }

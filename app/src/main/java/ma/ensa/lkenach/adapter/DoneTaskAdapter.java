@@ -17,16 +17,23 @@ import ma.ensa.lkenach.DoneTask;
 import ma.ensa.lkenach.R;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
+import ma.ensa.lkenach.SearchTask;
 
 public class DoneTaskAdapter extends RecyclerView.Adapter<AllTaskAdapter.ViewHolder> {
 
     private List<ToDoModel> toDoModelList;
     private DoneTask activity;
     private DatabaseHandler db;
+    private SearchTask searchTask;
 
     public DoneTaskAdapter(DatabaseHandler db, DoneTask activity){
         this.db = db;
         this.activity = activity;
+    }
+
+    public DoneTaskAdapter(DatabaseHandler db, SearchTask activity){
+        this.db = db;
+        this.searchTask = activity;
     }
 
     @NonNull

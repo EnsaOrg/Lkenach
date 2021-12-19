@@ -10,10 +10,10 @@
         android:id="@+id/button_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="160dp"
-        android:text="@string/all_tast_text"
         android:onClick="showAllTasks"
+        android:text="@string/all_tast_text"
         app:layout_constraintBottom_toTopOf="@+id/button_done"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +24,10 @@
         android:id="@+id/button_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="284dp"
-        android:text="@string/done_tast_text"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="236dp"
         android:onClick="showDoneTasks"
+        android:text="@string/done_tast_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,11 +35,36 @@
         android:id="@+id/button_not_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="408dp"
-        android:text="@string/not_done_tast_text"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="304dp"
         android:onClick="showNotDoneTasks"
+        android:text="@string/not_done_tast_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="108dp"
+        android:ems="10"
+        android:hint="@string/hint"
+        android:importantForAutofill="no"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_not_done"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="156dp"
+        android:onClick="onClick"
+        android:text="@string/button_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
