@@ -27,6 +27,7 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="284dp"
         android:text="@string/done_tast_text"
+        android:onClick="showDoneTasks"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +38,7 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="408dp"
         android:text="@string/not_done_tast_text"
+        android:onClick="showNotDoneTasks"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

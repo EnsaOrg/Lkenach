@@ -12,16 +12,32 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import ma.ensa.lkenach.adapter.ToDoAdapter;
+import ma.ensa.lkenach.adapter.AllTaskAdapter;
+import ma.ensa.lkenach.adapter.DoneTaskAdapter;
+import ma.ensa.lkenach.adapter.NotDoneTaskAdapter;
 
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private ToDoAdapter adapter;
+    private AllTaskAdapter adapter;
+    private DoneTaskAdapter doneAdapter;
+    private NotDoneTaskAdapter notDoneAdapter;
 
-    public RecyclerItemTouchHelper(ToDoAdapter adapter){
+    public RecyclerItemTouchHelper(AllTaskAdapter adapter){
         super(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT);
         this.adapter = adapter;
     }
+
+    public RecyclerItemTouchHelper(DoneTaskAdapter adapter){
+        super(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT);
+        this.doneAdapter = adapter;
+    }
+
+    public RecyclerItemTouchHelper(NotDoneTaskAdapter adapter){
+        super(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT);
+        this.notDoneAdapter = adapter;
+    }
+
+
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target){

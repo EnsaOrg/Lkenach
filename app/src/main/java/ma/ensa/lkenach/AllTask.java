@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ma.ensa.lkenach.adapter.ToDoAdapter;
+import ma.ensa.lkenach.adapter.AllTaskAdapter;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
-public class AllTastk extends AppCompatActivity implements DialogCloseListener {
+public class AllTask extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
-    private ToDoAdapter tasksAdapter;
+    private AllTaskAdapter tasksAdapter;
     private FloatingActionButton fab;
 
     private List<ToDoModel> taskList;
@@ -31,7 +31,7 @@ public class AllTastk extends AppCompatActivity implements DialogCloseListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_tastk);
+        setContentView(R.layout.activity_all_tast);
         getSupportActionBar().hide();
 
         db = new DatabaseHandler(this );
@@ -41,7 +41,7 @@ public class AllTastk extends AppCompatActivity implements DialogCloseListener {
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new ToDoAdapter(db,this);
+        tasksAdapter = new AllTaskAdapter(db,this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);

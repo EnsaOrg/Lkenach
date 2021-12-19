@@ -13,19 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ma.ensa.lkenach.AddNewTask;
-import ma.ensa.lkenach.AllTastk;
-import ma.ensa.lkenach.MainActivity;
+import ma.ensa.lkenach.AllTask;
+import ma.ensa.lkenach.NotDoneTask;
 import ma.ensa.lkenach.R;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
-public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
+public class AllTaskAdapter extends RecyclerView.Adapter<AllTaskAdapter.ViewHolder> {
 
     private List<ToDoModel> toDoModelList;
-    private AllTastk activity;
+    private AllTask activity;
     private DatabaseHandler db;
+    private NotDoneTask notDoneTask;
 
-    public ToDoAdapter(DatabaseHandler db, AllTastk activity){
+    public AllTaskAdapter(DatabaseHandler db, AllTask activity){
         this.db = db;
         this.activity = activity;
     }
@@ -74,7 +75,6 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         db.deleteTask(item.getId());
         toDoModelList.remove(position);
         notifyItemRemoved(position);
-
     }
 
     public void editItem(int position){

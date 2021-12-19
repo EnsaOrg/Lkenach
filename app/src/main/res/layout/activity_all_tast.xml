@@ -8,14 +8,15 @@
         android:id="@+id/tasksText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Tasks"
-        android:textColor="@android:color/black"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginTop="32sp"
+        android:layout_marginBottom="16dp"
+        android:text="Empty"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
 
         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasksRecyclerView"
         android:layout_width="match_parent"
@@ -35,6 +36,5 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:src="@drawable/ic_baseline_add" />
-
 
 </RelativeLayout>

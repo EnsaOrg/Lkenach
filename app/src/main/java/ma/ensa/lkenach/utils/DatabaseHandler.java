@@ -81,6 +81,63 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return taskList;
     }
 
+    @SuppressLint("Range")
+    public List<ToDoModel> getDoneTasks(){
+        List<ToDoModel> taskList = new ArrayList<>();
+        Cursor cur = null;
+        db.beginTransaction();
+        try{
+            //new String[] { STATUS }
+            cur = db.query(TODO_TABLE, null, null , null, null, null, null, null);
+            if(cur != null){
+                if(cur.moveToFirst()){
+                    do{
+                        ToDoModel task = new ToDoModel();
+                        task.setId(cur.getInt(cur.getColumnIndex(ID)));
+                        task.setTask(cur.getString(cur.getColumnIndex(TASK)));
+                        task.setStatus(cur.getInt(cur.getColumnIndex(STATUS)));
+                        taskList.add(task);
+                    }
+                    while(cur.moveToNext());
+                }
+            }
+        }
+        finally {
+            db.endTransaction();
+            assert cur != null;
+            cur.close();
+        }
+        return taskList;
+    }
+
+    @SuppressLint("Range")
+    public List<ToDoModel> getNotDoneTasks(){
+        List<ToDoModel> taskList = new ArrayList<>();
+        Cursor cur = null;
+        db.beginTransaction();
+        try{
+            cur = db.query(TODO_TABLE, null, null, null, null, null, null, null);
+            if(cur != null){
+                if(cur.moveToFirst()){
+                    do{
+                        ToDoModel task = new ToDoModel();
+                        task.setId(cur.getInt(cur.getColumnIndex(ID)));
+                        task.setTask(cur.getString(cur.getColumnIndex(TASK)));
+                        task.setStatus(cur.getInt(cur.getColumnIndex(STATUS)));
+                        taskList.add(task);
+                    }
+                    while(cur.moveToNext());
+                }
+            }
+        }
+        finally {
+            db.endTransaction();
+            assert cur != null;
+            cur.close();
+        }
+        return taskList;
+    }
+
     public void updateStatus(int id, int status){
         ContentValues cv = new ContentValues();
         cv.put(STATUS, status);
