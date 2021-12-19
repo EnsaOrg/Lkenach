@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ma.ensa.lkenach.AddNewTask;
+import ma.ensa.lkenach.AllTastk;
 import ma.ensa.lkenach.MainActivity;
 import ma.ensa.lkenach.R;
 import ma.ensa.lkenach.model.ToDoModel;
@@ -22,10 +22,10 @@ import ma.ensa.lkenach.utils.DatabaseHandler;
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     private List<ToDoModel> toDoModelList;
-    private MainActivity activity;
+    private AllTastk activity;
     private DatabaseHandler db;
 
-    public ToDoAdapter(DatabaseHandler db, MainActivity activity){
+    public ToDoAdapter(DatabaseHandler db, AllTastk activity){
         this.db = db;
         this.activity = activity;
     }
