@@ -35,7 +35,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setStyle(STYLE_NORMAL, R.style.DialogStyle);
-
     }
 
     @Override
@@ -80,7 +79,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
                     newTaskSaveButton.setEnabled(true);
                     newTaskSaveButton.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimaryDark));
                 }
-
             }
 
             @Override
@@ -104,7 +102,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
                      db.insertTask(task);
                  }
                  dismiss();
-
              }
          });
     }
