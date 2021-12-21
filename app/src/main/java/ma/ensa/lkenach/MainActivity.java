@@ -1,22 +1,12 @@
 package ma.ensa.lkenach;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.Collections;
-import java.util.List;
-
-import ma.ensa.lkenach.adapter.NotDoneTaskAdapter;
-import ma.ensa.lkenach.model.ToDoModel;
-import ma.ensa.lkenach.utils.DatabaseHandler;
 
 
 public class MainActivity extends AppCompatActivity {
