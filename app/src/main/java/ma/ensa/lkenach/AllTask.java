@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ma.ensa.lkenach.adapter.AllTaskAdapter;
+import ma.ensa.lkenach.adapter.TaskAdapter;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
 public class AllTask extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
-    private AllTaskAdapter tasksAdapter;
+    private TaskAdapter tasksAdapter;
     private FloatingActionButton fab;
 
     private List<ToDoModel> taskList;
@@ -41,7 +41,7 @@ public class AllTask extends AppCompatActivity implements DialogCloseListener {
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new AllTaskAdapter(db,this);
+        tasksAdapter = new TaskAdapter(db,this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);

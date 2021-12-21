@@ -14,16 +14,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import ma.ensa.lkenach.adapter.AllTaskAdapter;
-import ma.ensa.lkenach.adapter.DoneTaskAdapter;
+import ma.ensa.lkenach.adapter.TaskAdapter;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
 public class DoneTask extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
-    private DoneTaskAdapter tasksAdapter;
+    private TaskAdapter tasksAdapter;
     private FloatingActionButton fab;
 
     private List<ToDoModel> taskList;
@@ -42,7 +40,7 @@ public class DoneTask extends AppCompatActivity implements DialogCloseListener {
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new DoneTaskAdapter(db,this);
+        tasksAdapter = new TaskAdapter(db,this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);

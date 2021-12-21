@@ -19,14 +19,14 @@ import ma.ensa.lkenach.AddNewTask;
 import ma.ensa.lkenach.DialogCloseListener;
 import ma.ensa.lkenach.R;
 import ma.ensa.lkenach.RecyclerItemTouchHelper;
-import ma.ensa.lkenach.adapter.DoneTaskAdapter;
+import ma.ensa.lkenach.adapter.TaskAdapter;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
 public class SearchTask extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
-    private DoneTaskAdapter tasksAdapter;
+    private TaskAdapter tasksAdapter;
     private FloatingActionButton fab;
 
     private List<ToDoModel> taskList;
@@ -46,7 +46,7 @@ public class SearchTask extends AppCompatActivity implements DialogCloseListener
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new DoneTaskAdapter(db,this);
+        tasksAdapter = new TaskAdapter(db,this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);

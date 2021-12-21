@@ -14,21 +14,41 @@ import java.util.List;
 
 import ma.ensa.lkenach.AddNewTask;
 import ma.ensa.lkenach.AllTask;
+import ma.ensa.lkenach.DoneTask;
 import ma.ensa.lkenach.NotDoneTask;
 import ma.ensa.lkenach.R;
+import ma.ensa.lkenach.SearchTask;
 import ma.ensa.lkenach.model.ToDoModel;
 import ma.ensa.lkenach.utils.DatabaseHandler;
 
-public class AllTaskAdapter extends RecyclerView.Adapter<AllTaskAdapter.ViewHolder> {
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private List<ToDoModel> toDoModelList;
     private AllTask activity;
     private DatabaseHandler db;
+    private DoneTask doneTask;
     private NotDoneTask notDoneTask;
+    private SearchTask searchTask;
 
-    public AllTaskAdapter(DatabaseHandler db, AllTask activity){
+
+    public TaskAdapter(DatabaseHandler db, AllTask activity){
         this.db = db;
         this.activity = activity;
+    }
+
+    public TaskAdapter(DatabaseHandler db, DoneTask activity){
+        this.db = db;
+        this.doneTask = activity;
+    }
+
+    public TaskAdapter(DatabaseHandler db, NotDoneTask activity){
+        this.db = db;
+        this.notDoneTask = activity;
+    }
+
+    public TaskAdapter(DatabaseHandler db, SearchTask searchTask) {
+        this.db = db;
+        this.searchTask = searchTask;
     }
 
     @NonNull
