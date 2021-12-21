@@ -64,7 +64,7 @@ public class SearchTask extends AppCompatActivity implements DialogCloseListener
 
         int n = taskList.size();
         for (int i=0;i<n;i++){
-            if(taskList.get(i).getTask().equals(s)){
+            if(taskList.get(i).getTask().contains(s)){
                 show.add(taskList.get(i));
             }
         }
