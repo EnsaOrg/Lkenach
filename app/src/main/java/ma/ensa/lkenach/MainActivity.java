@@ -63,4 +63,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public void addTask(View v) {
+        AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+    }
 }
